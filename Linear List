@@ -12,5 +12,20 @@
      ListInsert(*L，i,e):在线性表中第i个元素插入新元素e
      ListDelet(*L，i,*e):将线性表中第i个元素删除并用e返回其值
      ListLengh(L)：返回线性表的元素个数
+例：实现AB两个线性表合并
+思想：把存在于B但不在A的插入到A中即可
+void union(List *La,List Lb)
+{
+    int La_len,Lb_len,i;
+    ElemType e;//声明有相同的数据元素e*
+    La_len = ListLength(La);//求长度
+    Lb_len = ListLength(Lb);
+    for(i=i;i<=Lb_len;i++)
+    {
+        GetElem(Lb,i,e);//取i赋值给e
+        if(!LocateElem(La,e,equal))//如果la中不存在于e相同的元素
+            ListInsert(La,++La_len,e);//插入
+    }
+}
      
       
