@@ -1,1 +1,16 @@
+一，线性表的定义 ： 零个或多个数据元素的有限序列（有前去有后继且一一对应）
+     ai可代表数据元素a在线性表中的位序，且线性表中的都是相同类型的数列
+     
 
+二，线性表的抽象数据类型
+  Operation:
+     InitList(*L):初始化操作，建立一个空的线性表L
+     ListEmpty(L):若线性表为空，返回true,否则返回false
+     ClearList(*L)：线性表清空
+     GetElem(L,i,*e):将线性表L中的第i个位置元素值返回给e
+     LocatElem(L,e):在L中查找与给定值相等的E的元素,成功返回true，失败返回false
+     ListInsert(*L，i,e):在线性表中第i个元素插入新元素e
+     ListDelet(*L，i,*e):将线性表中第i个元素删除并用e返回其值
+     ListLengh(L)：返回线性表的元素个数
+     
+      
