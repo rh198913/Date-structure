@@ -110,5 +110,5 @@ int main()
     printf("\n后序遍历：\n");
     lastorder(a);
     system("pause");
-    return 0;
+    return 0;//此方法为递归方式
 }
