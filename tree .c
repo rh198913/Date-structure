@@ -112,3 +112,32 @@ int main()
     system("pause");
     return 0;//此方法为递归方式
 }
+//非递归遍历
+//把走过的节点位置入栈，无路可走出栈，
+//找当前节点的右边是否存在节点，若存在，循环操作，直到所有节点都遍历
+void preorderbystack(LPTREE root)
+{
+    if(root != NULL)
+        return;
+        struct  treenode stack[10];//存储每次打印节点的位置(通常使用的数组栈，而不单独写)
+        int stacktop = -1;//栈顶标记
+        LPTREE pmove = root;
+        while (stacktop != -1 || pmove)
+        {
+            while (pmove)//根左右
+            {
+                //把路径入栈还要打印当前走过的节点
+                printf("%c\t",pmove->data);
+                stack[++stacktop] = pmove;//先加加，栈顶是等于-1的
+                pmove = pmove->lchild;//让指针一直往左边倒
+            }//否则无路可走了，需要出栈
+            if (stacktop != -1)
+            {
+                pmove  = stack[stacktop];//获取栈顶元素
+                stacktop++;
+                pmove = pmove->rchild;
+            }           
+            
+        }      
+
+}
