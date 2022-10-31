@@ -27,5 +27,73 @@ void union(List *La,List Lb)
             ListInsert(La,++La_len,e);//插入
     }
 }
+
+
+
+
+
+
+
+#include <stdlib.h>
+#include <stdio.h>
+#include <string.h>
+#include<malloc.h>
+/*结构体 = 数据和指针域
+链表的节点 = 数据域 + 指针域
+链表的作用就是把结构体变量和结构变量联系在一起 
+动态；创建一个链表：动态内存申请+模块化设计
+1.创建链表（创建一个表头表示整个链表）
+2.插入节点
+3.删除节点
+4.打印遍历链表（测试）
+原理：结构体指针动态内存申请变成结构体变量
+*/
+/* struct node{
+    int data;//数据域
+    struct node* next;//指针域
+};
+int main()
+{
+    struct node node1 = {1,NULL};//创建节点变量
+    struct node node2 = {2,NULL};//创建节点变量
+    struct node node3 = {3,NULL};//创建节点变量
+    node1.next = &node2;
+    node2.next = &node3;//此处一般称为静态链表
+    system("pause");
+    return 0;
+} */
+struct node {
+    int data;//数据域
+    struct node* next;
+};
+struct node* creatlist()
+
+    {
+        struct node* headnode = (struct node*)nalloc(sizeof(struct node));
+         //此处进行动态内存申请操作，headnode 变成结构体变量
+        //变量使用前必须被初始化
+        headnode-> data = 1;
+        headnode->next = NULL;
+        return headnode;//后期需要更改会形成差异化   
+    };
+//封装一个创建节点的功能插入的时候得有
+struct node* creatnode(int data)//比链表多一个数据域
+{
+    struct node* newnode = (struct node*)malloc(sizeof(struct node));
+    //指针变成变量动态申请
+    newnode->data = data;
+    newnode->next = NULL;//初始化一下再返回
+    reurn newnode;   
+};
+
+int main()
+{
+    
+}
+    
+
+
+
+                                                      
      
       
